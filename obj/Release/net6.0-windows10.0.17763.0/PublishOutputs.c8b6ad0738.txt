@@ -1,0 +1,8 @@
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\jklm-hacks.exe
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\jklm-hacks.dll
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\jklm-hacks.deps.json
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\jklm-hacks.runtimeconfig.json
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\jklm-hacks.pdb
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\Microsoft.Windows.SDK.NET.dll
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\WinRT.Runtime.dll
+C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\publish\Microsoft.Toolkit.Uwp.Notifications.dll
