@@ -45,6 +45,8 @@ if not then RIP bozo", 2);
                 }
             );
 
+            Notification("Opened jklm-hacks.", "I am now in your system tray, right click and press Exit to close.", 4);
+
             Application.Run();
         }
 
