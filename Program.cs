@@ -88,7 +88,43 @@ if not then RIP bozo", 2);
                     }
 
                     if (wordsString != null) {
-                        Notification("Words:", wordsString, 2);
+                        ToastContentBuilder toast =
+                            new ToastContentBuilder()
+                                .AddText($"Word search for: \"{input}\"")
+                                .AddText(wordsString);
+
+                        string[] splitWords = wordsString.Split('\n');
+
+                        if (splitWords.Length >= 1) { toast.AddButton(createButton("1")); }
+                        if (splitWords.Length >= 2) { toast.AddButton(createButton("2")); }
+                        if (splitWords.Length >= 3) { toast.AddButton(createButton("3")); }
+                        if (splitWords.Length >= 4) { toast.AddButton(createButton("4")); }
+
+                        toast.Show();
+
+                        ToastNotificationManagerCompat.OnActivated += toastArgs => {
+                            string args = toastArgs.Argument;
+
+                            var x = args.Split("=");
+
+                            string pressedButton = x[0];
+                            string value = x[1];
+
+                            Console.WriteLine("pressedButton: " + pressedButton);
+                            Console.WriteLine("value: " + value);
+                            Console.WriteLine("Thing to copy: " + splitWords[int.Parse(value)]);
+                            
+                            try {
+                                Thread thread = new Thread(() => Clipboard.SetText(splitWords[int.Parse(value)]));
+                                thread.SetApartmentState(ApartmentState.STA); //Set the thread to STA
+                                thread.Start(); 
+                                thread.Join();
+                            } catch (Exception e) {
+                                // print the exception
+                                Console.WriteLine("Exception: " + e);
+                            }
+                        };
+
                     } else {
                         Notification("Cannot find word", "Sorry we couldnt find that word you know");
                     }
