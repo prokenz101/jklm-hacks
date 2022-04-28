@@ -11,8 +11,8 @@ Run the program ONCE then:
 
 1. Open PowerToys Run or the windows search.
 
-2. Type your prompt (the letters that jklm asks you to make a word with, like "ah").
+2. Type your prompt (the letters that jklm asks you to make a word with, like "ah") in the bar where you enter the word (in jklm.fun).
 
-3. After typing your prompt (say "ah"), press Ctrl + F7 to run, then the program will send a toast notification showing possible words to type.
+3. The program SHOULD automatically find a word and type it out.
 
 **This is for Windows 10/11 and for the English language only.**
