@@ -7,7 +7,7 @@ namespace jklm_hacks {
         /// <summary>
         /// The entry point of the program.
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">Command-Line arguments.</param>
 
         [STAThread]
         static void Main(string[] args) {
@@ -33,10 +33,8 @@ namespace jklm_hacks {
                 Keys.F7,
                 () => {
                     SendKeys.SendWait("^a");
-                    Thread.Sleep(50);
+                    Thread.Sleep(150);
                     SendKeys.SendWait("^c");
-                    Thread.Sleep(50);
-                    SendKeys.Send("{ESC}");
                     Thread.Sleep(50);
                     string clipboard = Clipboard.GetText();
                     jklmRun(clipboard);
@@ -72,71 +70,26 @@ if not then RIP bozo", 2);
         }
 
         public static void jklmRun(string clipboard) {
-            Func<string, ToastButton> createButton = (string num) => {
-                return new ToastButton()
-                    .SetContent(num)
-                    .AddArgument(num, int.Parse(num) - 1)
-                    .SetBackgroundActivation();
-            };
-            
-            try {
-                string input = clipboard;
+            string input = clipboard.ToLower();
 
-                // check if input is there in any of the Words lists
-                if (
-                    Words.AllWords.Any(x => x.Contains(input))
-                ) {
-                    List<string> words = Words.AllWords.FindAll(x => x.Contains(input));
-                    var longestWords = words.OrderByDescending(x => x.Length).Take(4);
-                    string wordsString = string.Join("\n", longestWords);
-
-                    if (wordsString != null) {
-                        ToastContentBuilder toast =
-                            new ToastContentBuilder()
-                                .AddText($"Word search for: \"{input}\"")
-                                .AddText(wordsString);
-
-                        string[] splitWords = wordsString.Split('\n');
-
-                        if (splitWords.Length >= 1) { toast.AddButton(createButton("1")); }
-                        if (splitWords.Length >= 2) { toast.AddButton(createButton("2")); }
-                        if (splitWords.Length >= 3) { toast.AddButton(createButton("3")); }
-                        if (splitWords.Length >= 4) { toast.AddButton(createButton("4")); }
-
-                        toast.Show();
-
-                        ToastNotificationManagerCompat.OnActivated += toastArgs => {
-                            string args = toastArgs.Argument;
-
-                            var x = args.Split("=");
-
-                            string pressedButton = x[0];
-                            string value = x[1];
-
-                            Console.WriteLine("pressedButton: " + pressedButton);
-                            Console.WriteLine("value: " + value);
-                            Console.WriteLine("Thing to copy: " + splitWords[int.Parse(value)]);
-                            
-                            try {
-                                Thread thread = new Thread(() => Clipboard.SetText(splitWords[int.Parse(value)]));
-                                thread.SetApartmentState(ApartmentState.STA); //Set the thread to STA
-                                thread.Start(); 
-                                thread.Join();
-                            } catch (Exception e) {
-                                // print the exception
-                                Console.WriteLine("Exception: " + e);
-                            }
-                        };
-
-                    } else {
-                        Notification("Cannot find word", "Sorry we couldnt find that word you know");
-                    }
-                } else {
-                    Notification("Couldn't find a word.", "Sorry");
+            // check if input is there in any of the Words lists
+            if (Words.AllWords.Any(x => x.Contains(input))) {
+                List<string> words = Words.AllWords.FindAll(x => x.Contains(input));
+                
+                // take 10 RANDOM from "words"
+                List<string> randomWords = new List<string>();
+                for (int i = 0; i < 10; i++) {
+                    randomWords.Add(words[new Random().Next(0, words.Count)]);
                 }
-            } catch (ArgumentOutOfRangeException) {
-                Notification("Bro", "You need to input something you know");
-            }
+
+                // get the longest word from "randomWords" and call the variable "word"
+                string word = randomWords.OrderByDescending(x => x.Length).First();
+
+                words.Remove(word);
+
+                SendKeys.SendWait(word);
+                SendKeys.SendWait("{ENTER}");
+            } else { Notification("Couldn't find a word.", "Sorry"); }
         }
     }
 }
