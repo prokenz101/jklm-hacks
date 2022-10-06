@@ -1,6 +1,6 @@
 from time import sleep
 from pynput import keyboard
-from pyautogui import typewrite, hotkey
+from pyautogui import typewrite, hotkey, press
 from pyperclip import paste
 from pathlib import Path
 from random import sample
@@ -32,6 +32,7 @@ def on_press(key):
                 print("No word found!")
                 print()
                 return
+                    press("backspace")
 
             elif len(valid_words) >= 10:
                 random_words = sample(valid_words, 10)
