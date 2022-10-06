@@ -34,7 +34,7 @@ try:
                 hotkey("ctrl", "c")
 
                 sleep(0.2)
-                clipboard = paste()
+                clipboard = paste().lower()
                 print(f"Prompt: {clipboard}")
 
                 valid_words = list(filter(lambda x: clipboard in x, words))
@@ -54,7 +54,7 @@ try:
                 result = max(random_words)
 
                 print(f"Result: {result}")
-                typewrite(result, interval=0.02)
+                typewrite(f"{result}\n", interval=0.02)
                 print()
 
 
