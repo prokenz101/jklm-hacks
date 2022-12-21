@@ -11,7 +11,7 @@ Run the program ONCE then:
 
 1. Type your prompt (the letters that jklm asks you to make a word with, like "ah") in the bar where you enter the word (in jklm.fun).
 
-2. Press Ctrl + F9 to run the program.
+2. Press Ctrl + F7 to run the program.
 
 2. The program SHOULD automatically select the text that you typed, and then and type an appropriate word.
 
