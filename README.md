@@ -2,9 +2,9 @@
  A simple hack program for https://jklm.fun/
 
 ## Download
-Go to releases and download `jklm-hacks.exe`.
+Go to [releases](https://github.com/prokenz101/jklm-hacks/releases/latest) and download whichever version of the program, depending on if you have the [.NET 6 Runtime](https://dot.net/download).
 
-Requires the .NET 6 Runtime, if you don't have it then get it [here](https://dot.net/download).
+<br />
 
 ## Use
 Run the program ONCE then:
