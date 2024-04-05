@@ -40,8 +40,7 @@ namespace jklm_hacks {
                     jklmRun(clipboard);
                 },
                 () => {
-                    Notification("Something went wrong.", @"Are you trying to open this program multiple times?
-if not then RIP bozo", 2);
+                    Notification("Something went wrong.", @"Are you trying to open this program multiple times?", 2);
                     Exit();
                 }
             );
