@@ -2,7 +2,7 @@
  A simple hack program for https://jklm.fun/
 
 ## Download
-Go to [releases](https://github.com/prokenz101/jklm-hacks/releases/latest) and download whichever version of the program, depending on if you have the [.NET 6 Runtime](https://dot.net/download).
+Go to [releases](https://github.com/prokenz101/jklm-hacks/releases/latest) and download a suitable version.
 
 <br />
 
@@ -13,6 +13,6 @@ Run the program ONCE then:
 
 2. Press Ctrl + F7 to run the program.
 
-2. The program SHOULD automatically select the text that you typed, and then and type an appropriate word.
+2. The program SHOULD automatically select the text that you typed, and then type an appropriate word.
 
 **This is for Windows 10/11 and for the English language only.**
