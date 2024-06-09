@@ -1,2 +1,0 @@
-C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\win-x64\publish\jklm-hacks.pdb
-C:\Items\Code\jklm-hacks\bin\Release\net6.0-windows10.0.17763.0\win-x64\publish\jklm-hacks.exe
